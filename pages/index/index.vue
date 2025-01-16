@@ -36,7 +36,16 @@
 		</view>
 		<view class="select">
 			<!-- 标题 -->
-			<common-title></common-title>
+			<common-title>
+				<template #left>每日推荐</template>
+				<template #right>
+					<view class="date">
+						<uni-dateformat :date= "Date.now()" format="yyyy年MM月dd日"></uni-dateformat>
+						<uni-icons type="calendar" size="30" color="#fbcd31"></uni-icons>
+					</view>
+
+				</template>
+			</common-title>
 			<!-- 内容 -->
 			<view class="content">
 			<scroll-view scroll-x="true" show-scrollbar="true">
@@ -45,6 +54,19 @@
 				</view>
 			</scroll-view>
 			</view>
+		</view>
+		<view class="theme">
+			<common-title>
+				<template #left>专题精选</template>
+				<template #right>
+				<navigator url="#" class="more"> More+</navigator>
+				</template>
+			</common-title>
+		</view>
+		<view class="content">
+			<theme-item>
+				
+			</theme-item>
 		</view>
 	</view>
 </template>
@@ -118,8 +140,42 @@
 		}
 	}
 	.select{
+		padding: 30rpx 0; 
+		width: 750rpx;
 		.content{
-			
+			width: 720rpx;
+			margin-left: 30rpx;
+			margin-top: 20rpx;
+			scroll-view{
+				white-space: nowrap; //不换行
+				// margin-right: 30rpx;
+				.box{
+					display: inline-block;
+					height: 450rpx;
+					width: 200rpx;
+					margin-right: 15rpx;
+					image{
+						width: 100%;
+						height: 100%;
+						border-radius: 5%;
+					}
+				.box:last-child{margin-right: 30rpx;}
+				}
+				
+			}
+		}
+		.date{
+			color: gray;
+			font-family: "楷体";
+			display: flex;
+			align-items: center; //水平线居中
+		}
+	}
+	.theme{
+		padding-top:20rpx;
+		.more{
+			font-size: 32rpx;
+			color: darkgray;
 		}
 	}
 }
