@@ -1,20 +1,29 @@
 <template>
-	<view>
-		公共标题
+	<view class="common-title">
+		<view class="name">
+			<slot name="left"></slot>
+		</view>
+		<view class="custom">
+			<slot name="right"></slot>
+		</view>
 	</view>
 </template>
 
-<script>
-	export default {
-		name:"common-title",
-		data() {
-			return {
-				
-			};
-		}
-	}
+<script setup>
+
 </script>
 
-<style>
+<style lang="scss" scoped>
+	.common-title{
+		display: flex;
+		justify-content: space-between; //两端对齐
+		align-items: center; 
+		padding: 0 30rpx;
+		.name{
+			font-size: 40rpx;
+			// font-weight: bolder;
+		}
+		
+	}
 
 </style>
